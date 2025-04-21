@@ -10,6 +10,12 @@ A clipboard management tool built with Flutter that helps you track, store, and 
 - **System Tray Integration**: Access your clipboard history from the system tray
 - **Launch at Startup**: Option to automatically start with your operating system
 
+## Screenshots
+
+![Main Screen](assets/screenshots/screen1.png)
+![Setting Screen](assets/screenshots/screen2.png)
+
+
 ## Installation
 
 ### Requirements
@@ -35,7 +41,7 @@ sudo apt-get install keybinder-3.0 libayatana-appindicator3-dev libx11-dev libxt
 
 1. Clone the repository
    ```bash
-   git clone https://github.com/yourusername/clipboard-manager.git
+   git clone https://github.com/KevinKarin06/clip_deck
    ```
 
 2. Navigate to the project directory
