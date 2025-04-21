@@ -1,4 +1,5 @@
 import 'package:clip_deck/domain/home.dart';
+import 'package:clip_deck/domain/settings.dart';
 import 'package:clip_deck/presentation/widgets/clipboard_history.dart';
 import 'package:clip_deck/presentation/widgets/clipboard_history_header.dart';
 import 'package:clip_deck/services/clipboard_service.dart';
@@ -19,6 +20,10 @@ class _HomeScreenState extends State<HomeScreen> with ClipboardListener {
   @override
   void initState() {
     GetIt.I<ClipboardService>().startWatching(this);
+    if (context.mounted) {
+      print('here');
+      // Provider.of<SettingsProvider>(context, listen: false).addListener(this);
+    }
     super.initState();
   }
 
@@ -44,21 +49,25 @@ class _HomeScreenState extends State<HomeScreen> with ClipboardListener {
   @override
   Widget build(BuildContext context) {
     final pageWith = MediaQuery.of(context).size.width * 0.85;
-    return Container(
-      width: pageWith,
-      height: MediaQuery.of(context).size.height,
-      padding: EdgeInsets.all(24),
-      child: Column(
-        children: [
-          ClipboardHistoryHeader(),
-          SizedBox(height: 16.0),
-          Expanded(
-            child: ClipboardHistory(
-              items: Provider.of<HomeProvider>(context).getItems,
-            ),
+    return Consumer<SettingsProvider>(
+      builder: (context, _, _) {
+        return Container(
+          width: pageWith,
+          height: MediaQuery.of(context).size.height,
+          padding: EdgeInsets.all(24),
+          child: Column(
+            children: [
+              ClipboardHistoryHeader(),
+              SizedBox(height: 16.0),
+              Expanded(
+                child: ClipboardHistory(
+                  items: Provider.of<HomeProvider>(context).getItems,
+                ),
+              ),
+            ],
           ),
-        ],
-      ),
+        );
+      },
     );
   }
 }

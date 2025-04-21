@@ -12,14 +12,15 @@ section: x11
 installed_size: 15700
 
 dependencies:
-  - keybinder-3.0 
+  - libkeybinder-3.0-0
+  - libkeybinder-3.0-dev
   - libayatana-appindicator3-dev 
   - libx11-dev 
   - libxtst-dev
 
 essential: false
 
-icon: assets/images/logo.png
+icon: assets/images/clip_deck.png
 
 postuninstall_scripts:
   - echo "Sorry to see you go."

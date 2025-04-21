@@ -1,3 +1,5 @@
+variables:
+  GITHUB_TOKEN: ''
 output: dist/
 releases:
   - name: dev
@@ -8,3 +10,19 @@ releases:
           target: deb
           build_args:
             enable-experiment: records
+        # publish:
+        #   target: github
+        #   args:
+        #     repo-owner: KevinKarin06
+        #     repo-name: clip_deck
+      # - name: release-dev-linux-appimage
+      #   package:
+      #     platform: linux
+      #     target: appimage
+      #     build_args:
+      #       enable-experiment: records
+        # publish:
+        #   target: github
+        #   args:
+        #     repo-owner: KevinKarin06
+        #     repo-name: clip_deck

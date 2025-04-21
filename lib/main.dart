@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:clip_deck/app.dart';
 import 'package:clip_deck/domain/settings.dart';
 import 'package:clip_deck/services/clipboard_service.dart';
@@ -10,6 +12,7 @@ import 'package:clip_deck/services/window_service.dart';
 import 'package:clip_deck/utils/constants.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_single_instance/flutter_single_instance.dart';
 import 'package:get_it/get_it.dart';
 
 Future<void> main(List<String> args) async {
@@ -23,14 +26,19 @@ Future<void> main(List<String> args) async {
   await GetIt.I<HotkeyService>().initialize();
   await GetIt.I<StartupService>().initialize();
 
-  runApp(
-    EasyLocalization(
-      fallbackLocale: Constants.fallbackLocale,
-      supportedLocales: Constants.supportedLocales,
-      path: Constants.translationPath,
-      child: ClipDeckApp(),
-    ),
-  );
+  if (await FlutterSingleInstance().isFirstInstance()) {
+    runApp(
+      EasyLocalization(
+        fallbackLocale: Constants.fallbackLocale,
+        supportedLocales: Constants.supportedLocales,
+        path: Constants.translationPath,
+        child: ClipDeckApp(),
+      ),
+    );
+  } else {
+    await GetIt.I<WindowService>().show(alwaysOnTop: true);
+    exit(0);
+  }
 }
 
 void setupServiceLocator() {

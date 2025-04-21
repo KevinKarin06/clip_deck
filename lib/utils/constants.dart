@@ -6,7 +6,7 @@ import 'package:hotkey_manager/hotkey_manager.dart';
 class Constants {
   static const String appName = 'Clip Deck';
   static const int maxHistoryItems = 50;
-  static const String packageName = 'dev.clip_deck.example';
+  static const String packageName = 'dev.clip-deck.app';
   static const List<Locale> supportedLocales = [Locale('en'), Locale('fr')];
   static const String translationPath = 'assets/translations';
   static const Locale fallbackLocale = Locale('en');

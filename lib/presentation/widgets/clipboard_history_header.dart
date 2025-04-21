@@ -14,7 +14,7 @@ class ClipboardHistoryHeader extends StatelessWidget {
       mainAxisSize: MainAxisSize.max,
       children: [
         SizedBox(
-          width: MediaQuery.of(context).size.width * 0.85 * 0.55,
+          width: MediaQuery.of(context).size.width * 0.85 * 0.47,
           child: TextFormField(
             cursorHeight: 18.0,
             keyboardType: TextInputType.text,

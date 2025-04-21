@@ -1,0 +1,32 @@
+display_name: Clip Deck
+
+icon: assets/images/clip_deck.png
+
+keywords:
+  - clipboard
+  - clipboard manager
+  - clipboard history
+  - clipboard tool
+  - copy paste
+  - clipboard tracker
+  - Flutter clipboard
+  - clipboard utility
+  - copy manager
+  - paste history
+  - productivity tool
+  - clipboard sync
+  - text snippets
+  - clipboard storage
+  - clipboard extension
+  - copy history
+
+generic_name: Clipboard Manager
+
+categories:
+  - Utility
+  - Productivity
+  - Development
+
+startup_notify: true
+
+include: []

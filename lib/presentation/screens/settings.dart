@@ -34,9 +34,7 @@ class SettingsScreen extends StatelessWidget {
 
     if (parsed > Constants.maxHistoryItems) {
       showToast(
-        'max_entries_maximum'.tr(
-          args: [settingsProvider.getMaxHistoryItems().toString()],
-        ),
+        'max_entries_maximum'.tr(args: [Constants.maxHistoryItems.toString()]),
         type: ToastificationType.error,
       );
       return;
@@ -82,6 +80,7 @@ class SettingsScreen extends StatelessWidget {
                 onChanged: (value) {
                   if (value != null) {
                     context.setLocale(Locale(value));
+                    settingsProvider.notify();
                   }
                 },
                 items:
