@@ -1,0 +1,52 @@
+display_name: Clip Deck
+package_name: clip-deck
+
+maintainer:
+  name: Kevin Karin
+  email: kevinkarin06@gmail.com
+
+priority: optional
+
+section: x11
+
+installed_size: 15700
+
+dependencies:
+  - keybinder-3.0 
+  - libayatana-appindicator3-dev 
+  - libx11-dev 
+  - libxtst-dev
+
+essential: false
+
+icon: assets/images/logo.png
+
+postuninstall_scripts:
+  - echo "Sorry to see you go."
+
+keywords:
+  - clipboard
+  - clipboard manager
+  - clipboard history
+  - clipboard tool
+  - copy paste
+  - clipboard tracker
+  - Flutter clipboard
+  - clipboard utility
+  - copy manager
+  - paste history
+  - productivity tool
+  - clipboard sync
+  - text snippets
+  - clipboard storage
+  - clipboard extension
+  - copy history
+
+generic_name: Clipboard Manager
+
+categories:
+  - Utility
+  - Productivity
+  - Development
+
+startup_notify: true
