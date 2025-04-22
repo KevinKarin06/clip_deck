@@ -20,10 +20,6 @@ class _HomeScreenState extends State<HomeScreen> with ClipboardListener {
   @override
   void initState() {
     GetIt.I<ClipboardService>().startWatching(this);
-    if (context.mounted) {
-      print('here');
-      // Provider.of<SettingsProvider>(context, listen: false).addListener(this);
-    }
     super.initState();
   }
 
@@ -49,8 +45,8 @@ class _HomeScreenState extends State<HomeScreen> with ClipboardListener {
   @override
   Widget build(BuildContext context) {
     final pageWith = MediaQuery.of(context).size.width * 0.85;
-    return Consumer<SettingsProvider>(
-      builder: (context, _, _) {
+    return Consumer2<SettingsProvider, HomeProvider>(
+      builder: (context, _, homeProvider, _) {
         return Container(
           width: pageWith,
           height: MediaQuery.of(context).size.height,
@@ -59,11 +55,7 @@ class _HomeScreenState extends State<HomeScreen> with ClipboardListener {
             children: [
               ClipboardHistoryHeader(),
               SizedBox(height: 16.0),
-              Expanded(
-                child: ClipboardHistory(
-                  items: Provider.of<HomeProvider>(context).getItems,
-                ),
-              ),
+              Expanded(child: ClipboardHistory(items: homeProvider.getItems)),
             ],
           ),
         );
